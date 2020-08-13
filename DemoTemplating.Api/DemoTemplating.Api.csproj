@@ -11,6 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DemoTemplating.RendererLib\DemoTemplating.RendererLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Templates\Bye.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

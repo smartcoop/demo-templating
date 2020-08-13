@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.IO;
+using System.Net;
 using System.Net.Http;
 
 namespace DemoTemplating.Api.Controllers {
@@ -11,14 +12,17 @@ namespace DemoTemplating.Api.Controllers {
 
         [HttpGet]
         [Route("templating/{htmlFileName}/{jsonFileName}")]
-        public IActionResult Get(string htmlFileName, string jsonFileName) {
+        public ContentResult Get(string htmlFileName, string jsonFileName) {
 
             string remoteJsonUrl = $"{JsonServerUrl}/{jsonFileName}.json";
             string json;
 
             using (var response = new HttpClient().GetAsync(remoteJsonUrl).Result) {
                 if (!response.IsSuccessStatusCode) {
-                    return NotFound($"Failed to fetch json file from [{remoteJsonUrl}]");
+                    return new ContentResult {
+                        ContentType = "text/html",
+                        StatusCode = (int)HttpStatusCode.NotFound
+                    };
                 }
 
                 json = response.Content.ReadAsStringAsync().Result;
@@ -27,9 +31,11 @@ namespace DemoTemplating.Api.Controllers {
             string htmlPath = Path.Combine(TemplateFolder, $"{htmlFileName}.html");
             string html = System.IO.File.ReadAllText(htmlPath);
 
-            //TODO: call DLL to template
-            
-            return Ok(html + json);
+            return new ContentResult {
+                ContentType = "text/html",
+                StatusCode = (int)HttpStatusCode.OK,
+                Content = RendererLib.TemplatingService.Render(html, json)
+            };
         }
     }
 }
