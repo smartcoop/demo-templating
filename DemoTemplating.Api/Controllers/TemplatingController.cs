@@ -8,7 +8,7 @@ namespace DemoTemplating.Api.Controllers {
     public class TemplatingController : ControllerBase {
 
         private static readonly string TemplateFolder = "./Templates";
-        private static readonly string JsonServerUrl = "http://json-server";
+        private static readonly string JsonServerUrl = "http://demo-templating-json-server";
 
         [HttpGet]
         [Route("templating/{htmlFileName}/{jsonFileName}")]
