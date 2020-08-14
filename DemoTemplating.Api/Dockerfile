@@ -8,6 +8,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["DemoTemplating.Api/DemoTemplating.Api.csproj", "DemoTemplating.Api/"]
+COPY ["DemoTemplating.RendererLib/DemoTemplating.RendererLib.csproj", "DemoTemplating.RendererLib/"]
 RUN dotnet restore "DemoTemplating.Api/DemoTemplating.Api.csproj"
 COPY . .
 WORKDIR "/src/DemoTemplating.Api"
