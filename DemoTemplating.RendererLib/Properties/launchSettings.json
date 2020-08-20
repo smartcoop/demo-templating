@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "DemoTemplating.RendererLib": {
+      "commandName": "Project"
+    }
+  }
+}

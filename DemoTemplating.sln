@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoTemplating.Api", "DemoT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoTemplating.RendererLib", "DemoTemplating.RendererLib\DemoTemplating.RendererLib.csproj", "{6AD05C1C-FA65-435D-87F2-09C2581D0915}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoTemplating.Cli", "DemoTemplating.Cli\DemoTemplating.Cli.csproj", "{97C702C6-B4D6-4F02-A3C9-5D80E2D279C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6AD05C1C-FA65-435D-87F2-09C2581D0915}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AD05C1C-FA65-435D-87F2-09C2581D0915}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AD05C1C-FA65-435D-87F2-09C2581D0915}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97C702C6-B4D6-4F02-A3C9-5D80E2D279C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97C702C6-B4D6-4F02-A3C9-5D80E2D279C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97C702C6-B4D6-4F02-A3C9-5D80E2D279C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97C702C6-B4D6-4F02-A3C9-5D80E2D279C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

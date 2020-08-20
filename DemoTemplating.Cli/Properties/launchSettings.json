@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DemoTemplating.Cli": {
+      "commandName": "Project",
+      "commandLineArgs": "\"../../../Resources/hello.html\" \"../../../Resources/name1.json\""
+    }
+  }
+}
