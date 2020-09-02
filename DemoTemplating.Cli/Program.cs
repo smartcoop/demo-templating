@@ -28,7 +28,7 @@ namespace DemoTemplating.Cli {
                 Console.WriteLine("Files read successfully");
             } catch (FileNotFoundException e) {
                 Console.WriteLine($"File not found {e.FileName}");
-                Environment.Exit(0);
+                Environment.Exit(1);
             }
         }
 
