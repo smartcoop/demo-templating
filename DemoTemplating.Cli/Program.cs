@@ -6,7 +6,6 @@ using System.IO;
 namespace DemoTemplating.Cli {
     public class Program {
         public const string WorkDirectory = @".\";
-        public const string ResourcesDirectory = @"..\..\..\Resources";
         static void Main(string[] args) {
             if (args.Length == 3) {
                 string htmlText = "", jsonText = "";
@@ -23,8 +22,8 @@ namespace DemoTemplating.Cli {
 
         private static void ReadFiles(string[] args, ref string htmlText, ref string jsonText) {
             try {
-                htmlText = File.ReadAllText(Path.Combine(ResourcesDirectory, args[0]));
-                jsonText = File.ReadAllText(Path.Combine(ResourcesDirectory, args[1]));
+                htmlText = File.ReadAllText(args[0]);
+                jsonText = File.ReadAllText(args[1]);
                 Console.WriteLine("Files read successfully");
             } catch (FileNotFoundException e) {
                 Console.WriteLine($"File not found {e.FileName}");
