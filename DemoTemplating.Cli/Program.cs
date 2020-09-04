@@ -5,7 +5,7 @@ using System.IO;
 
 namespace DemoTemplating.Cli {
     public class Program {
-        public const string WorkDirectory = @".\";
+        public const string WorkDirectory = "./";
         static void Main(string[] args) {
             if (args.Length == 3) {
                 string htmlText = "", jsonText = "";
@@ -46,7 +46,7 @@ namespace DemoTemplating.Cli {
 
         private static void RunHtmlInBrowser(string outputFile) {
             new Process {
-                StartInfo = new ProcessStartInfo(outputFile) {
+                StartInfo = new ProcessStartInfo(Path.GetFullPath(outputFile)) {
                     UseShellExecute = true
                 }
             }.Start();

@@ -2,7 +2,7 @@
   "profiles": {
     "DemoTemplating.Cli": {
       "commandName": "Project",
-      "commandLineArgs": "\"hello.html\" \"name1.json\" \"outputfile.html\""
+      "commandLineArgs": "./../../../Resources/hello.html ./../../../Resources/name1.json outputfile.html"
     }
   }
 }
