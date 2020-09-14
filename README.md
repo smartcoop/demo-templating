@@ -19,4 +19,13 @@ By default, the api will run on port 80 and a few examples of HTML and JSON file
 - fill the HTML placeholders with the data from the JSON file
 - send the resulting HTML back
 ## Rendering templates with the cli
-Soon
+
+Console app (.NET Core).
+Templating Cli render the html with the json passed as arguments of the command line and display it in browser.
+
+This command line takes 3 arguments, an html file, a json file and a result html file
+
+```
+./DemoTemplating.Cli.exe hello.html name1.json outputfile.html
+```
+
