@@ -29,3 +29,9 @@ This command line takes 3 arguments, an html file, a json file and a result html
 ./DemoTemplating.Cli.exe hello.html name1.json outputfile.html
 ```
 
+## Using the templating with BrowserSync
+By running the templating server with BrowserSync, you can easily modify the templates and json files on the fly. The browser will automatically reload when one file is changed.
+In order to run the demo with BrowserSync, you have to :
+- Edit the `start-with-browser-sync.sh` file located at the root of the repository. Change the value of the 2 variables `localJsonFolder` and `localTemplateFolder` to make them point at your local folder containing the json files and the templates files respectively. This step is needed because absolute paths are required in order to mount the correct directory in the docker container.
+- Start the script `start-with-browser-sync.sh`
+- This will create another web server on port 3000 which will watch any file modification and refresh the browser if needed. To see how it works, you can go to `http://localhost:3000/templating/hello/name1` and try to edit the `hello.html` template.
