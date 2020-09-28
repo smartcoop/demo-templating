@@ -4,6 +4,8 @@
 docker build -t demo-templating-json-server -f DemoTemplating.JsonServer/Dockerfile ./DemoTemplating.JsonServer/
 # Build api image
 docker build -t demo-templating-api -f DemoTemplating.Api/Dockerfile .
+# Build the benchmark image
+docker build -t demo-templating-benchmark -f DemoTemplating.Benchmark/Dockerfile .
 
 
 # Create docker network if needed
