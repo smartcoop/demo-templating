@@ -35,3 +35,13 @@ In order to run the demo with BrowserSync, you have to :
 - Edit the `start-with-browser-sync.sh` file located at the root of the repository. Change the value of the 2 variables `localJsonFolder` and `localTemplateFolder` to make them point at your local folder containing the json files and the templates files respectively. This step is needed because absolute paths are required in order to mount the correct directory in the docker container.
 - Start the script `start-with-browser-sync.sh`
 - This will create another web server on port 3000 which will watch any file modification and refresh the browser if needed. To see how it works, you can go to `http://localhost:3000/templating/hello/name1` and try to edit the `hello.html` template.
+
+## Benchmarking the templating server
+In order to benchmark the templating server, you can use the `demo-templating-benchmark` docker image that is built when running the `start.sh` script. This image contains 2 benchmarking tools :
+- [wrk](https://github.com/wg/wrk)
+- [ab](https://httpd.apache.org/docs/2.4/en/programs/ab.html)
+
+You can use the benchmark image in 3 different ways :
+- Simply by running the `start-benchmark.sh` script that will take care of running the image for you. It will start a benchmark test for 10 seconds on the url `http://demo-templating-api/templating/hello/name1` by using 2 threads and 100 simultaneous connections.
+- You can specify the command to run as the image parameter. For example, to run the same simulation as the default one, use `docker run --rm --network=templating --name demo-templating-benchmark demo-templating-benchmark wrk -t2 -d10s -c100 --latency http://demo-templating-api/templating/hello/name1`
+- You can also start the image as an interactive container to type your commands inside it directly: `docker run --rm -it --network=templating --name demo-templating-benchmark demo-templating-benchmark /bin/sh`. Then you can use `wrk` and `ab` with any parameter you want.
