@@ -18,14 +18,15 @@ namespace DemoTemplating.RendererLib {
         /// <param name="input">String from which to get the MD5 hash</param>
         /// <returns></returns>
         private static string GetMd5Hash(string input) {
-            var md5 = MD5.Create();
-            var inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
-            var hash = md5.ComputeHash(inputBytes);
-            var sb = new StringBuilder();
-            foreach (byte t in hash) {
-                sb.Append(t.ToString("X2"));
+            using (var md5 = MD5.Create()) {
+                var inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+                var hash = md5.ComputeHash(inputBytes);
+                var sb = new StringBuilder();
+                foreach (byte t in hash) {
+                    sb.Append(t.ToString("X2"));
+                }
+                return sb.ToString();
             }
-            return sb.ToString();
         }
     }
 }
