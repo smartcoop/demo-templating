@@ -45,3 +45,8 @@ You can use the benchmark image in 3 different ways :
 - Simply by running the `start-benchmark.sh` script that will take care of running the image for you. It will start a benchmark test for 10 seconds on the url `http://demo-templating-api/templating/hello/name1` by using 2 threads and 100 simultaneous connections.
 - You can specify the command to run as the image parameter. For example, to run the same simulation as the default one, use `docker run --rm --network=templating --name demo-templating-benchmark demo-templating-benchmark wrk -t2 -d10s -c100 --latency http://demo-templating-api/templating/hello/name1`
 - You can also start the image as an interactive container to type your commands inside it directly: `docker run --rm -it --network=templating --name demo-templating-benchmark demo-templating-benchmark /bin/sh`. Then you can use `wrk` and `ab` with any parameter you want.
+
+## Simple form validation demo
+The api also includes a basic html form with server-side validation. To start the api, either run `start.sh` which will run all containers, or `start-api-only.sh` which will only run the api container.
+You can then navigate to http://localhost/form/login to view the login form. When submitted via the `Go` button, the same form will appear with an additional `invalid` class to inputs that did not pass the validation.
+Right now, the validation is very basic : both inputs need to be between 3 and 50 characters.
